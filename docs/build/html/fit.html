@@ -1,0 +1,787 @@
+
+<!DOCTYPE html>
+
+
+<html lang="english" data-content_root="./" data-theme="light">
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>rddesign.RDD.fit &#8212; RDDesign v0.0.0 Manual</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "light";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="_static/graphviz.css?v=fd3f3429" />
+    <link rel="stylesheet" type="text/css" href="_static/plot_directive.css?v=7f9a90b1" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="_static/design.css?v=3e912e47" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="_static/documentation_options.js?v=e38f85a1"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=30646c52"></script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script async="async" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'fit';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="rddesign.RDD.continuity_test" href="continuity_test.html" />
+    <link rel="prev" title="rddesign.RDD" href="RDD.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="english"/>
+    <meta name="docbuild:last-update" content="Aug 15, 2024"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="light">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="index.html">
+  
+  
+  
+  
+  
+    
+    
+    
+    <img src="_static/logo_light.svg" class="logo__image only-light" alt="RDDesign v0.0.0 Manual - Home"/>
+    <script>document.write(`<img src="_static/logo_dark.svg" class="logo__image only-dark" alt="RDDesign v0.0.0 Manual - Home"/>`);</script>
+  
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="RDD.html">
+    rddesign.RDD
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="#">
+    rddesign.RDD.fit
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="continuity_test.html">
+    rddesign.RDD.continuity_test
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="bootstrap.html">
+    rddesign.RDD.bootstrap
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+      
+        <div class="navbar-item">
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script></div>
+      
+        <div class="navbar-item">
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script></div>
+      
+        <div class="navbar-item">
+<script>
+document.write(`
+  <div class="version-switcher__container dropdown">
+    <button id="pst-version-switcher-button-2"
+      type="button"
+      class="version-switcher__button btn btn-sm dropdown-toggle"
+      data-bs-toggle="dropdown"
+      aria-haspopup="listbox"
+      aria-controls="pst-version-switcher-list-2"
+      aria-label="Version switcher list"
+    >
+      Choose version  <!-- this text may get changed later by javascript -->
+      <span class="caret"></span>
+    </button>
+    <div id="pst-version-switcher-list-2"
+      class="version-switcher__menu dropdown-menu list-group-flush py-0"
+      role="listbox" aria-labelledby="pst-version-switcher-button-2">
+      <!-- dropdown will be populated by javascript on page load -->
+    </div>
+  </div>
+`);
+</script></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/MosesStewart/pddesign" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="RDD.html">
+    rddesign.RDD
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="#">
+    rddesign.RDD.fit
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="continuity_test.html">
+    rddesign.RDD.continuity_test
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="bootstrap.html">
+    rddesign.RDD.bootstrap
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script></div>
+        
+          <div class="navbar-item">
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script></div>
+        
+          <div class="navbar-item">
+<script>
+document.write(`
+  <div class="version-switcher__container dropdown">
+    <button id="pst-version-switcher-button-3"
+      type="button"
+      class="version-switcher__button btn btn-sm dropdown-toggle"
+      data-bs-toggle="dropdown"
+      aria-haspopup="listbox"
+      aria-controls="pst-version-switcher-list-3"
+      aria-label="Version switcher list"
+    >
+      Choose version  <!-- this text may get changed later by javascript -->
+      <span class="caret"></span>
+    </button>
+    <div id="pst-version-switcher-list-3"
+      class="version-switcher__menu dropdown-menu list-group-flush py-0"
+      role="listbox" aria-labelledby="pst-version-switcher-button-3">
+      <!-- dropdown will be populated by javascript on page load -->
+    </div>
+  </div>
+`);
+</script></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/MosesStewart/pddesign" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"></div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="RDD.html" class="nav-link">rddesign.RDD</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page">rddesign.RDD.fit</li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="rddesign-rdd-fit">
+<h1>rddesign.RDD.fit<a class="headerlink" href="#rddesign-rdd-fit" title="Link to this heading">#</a></h1>
+<p>Method to fit the regression discontinuity design model with user specified
+options.</p>
+<section id="parameters">
+<h2>Parameters<a class="headerlink" href="#parameters" title="Link to this heading">#</a></h2>
+<dl class="simple">
+<dt>model<span class="classifier">str, optional</span></dt><dd><p>Method used to fit the model. Should be one of <code class="docutils literal notranslate"><span class="pre">&quot;local</span> <span class="pre">linear&quot;</span></code> or
+<code class="docutils literal notranslate"><span class="pre">&quot;polynomial&quot;</span></code></p>
+</dd>
+<dt>design<span class="classifier">str, optional</span></dt><dd><p>Design for the RDD model. Should be one of <code class="docutils literal notranslate"><span class="pre">&quot;sharp&quot;</span></code> or <code class="docutils literal notranslate"><span class="pre">&quot;fuzzy&quot;</span></code>.</p>
+</dd>
+<dt>bootstrap<span class="classifier">boolean, optional</span></dt><dd><p>Indicator for whether to use a bayesian bootstrap to compute confidence
+intervals and standard errors. Must be true to compute confidence intervals
+and standard errors when <code class="docutils literal notranslate"><span class="pre">design</span> <span class="pre">=</span> <span class="pre">&quot;fuzzy&quot;</span></code>.</p>
+</dd>
+<dt>bandwidth<span class="classifier">float, optional</span></dt><dd><p>Choice of bandwidth to use with <code class="docutils literal notranslate"><span class="pre">model</span> <span class="pre">=</span> <span class="pre">&quot;local</span> <span class="pre">linear&quot;</span></code>, or 1/2 the width of
+the window to the left and right of the cutoff to used in local linear regression.
+When left unspecified, bandwidth is chosen using cross-validation procedure from
+Imbens and Lemieux<a class="footnote-reference brackets" href="#footcite-imbens-regression-2008" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a>.</p>
+</dd>
+<dt>order<span class="classifier">int, optional</span></dt><dd><p>Choice of order of polynomial to use with <code class="docutils literal notranslate"><span class="pre">model</span> <span class="pre">=</span> <span class="pre">&quot;polynomial&quot;</span></code>. When left
+unspecified, polynomial order is chosen by optimizing using the criterion chosen
+for <code class="docutils literal notranslate"><span class="pre">optimization</span></code>.</p>
+</dd>
+<dt>optimization<span class="classifier">str, optional</span></dt><dd><p>Optimization method for polynomial order. Should be one of <code class="docutils literal notranslate"><span class="pre">&quot;aic&quot;</span></code> to use Akaike
+Information Criterion or <code class="docutils literal notranslate"><span class="pre">&quot;significance</span> <span class="pre">bins&quot;</span></code> to use choose polynomial order
+based on hypothesis tests for bin dummies. Default is <code class="docutils literal notranslate"><span class="pre">&quot;aic&quot;</span></code>.</p>
+</dd>
+<dt>nbins<span class="classifier">int, optional</span></dt><dd><p>Number of bins to use when choosing polynomial order by optimizing with
+<code class="docutils literal notranslate"><span class="pre">optimization</span> <span class="pre">=</span> <span class="pre">&quot;significance</span> <span class="pre">bins&quot;</span></code>. Default is no. observations/20.</p>
+</dd>
+<dt>pval<span class="classifier">int, optional</span></dt><dd><p>Significance cutoff for bin dummies when choosing polynomial order by optimizing
+with <code class="docutils literal notranslate"><span class="pre">optimization</span> <span class="pre">=</span> <span class="pre">&quot;significance</span> <span class="pre">bins&quot;</span></code>. The algorithm stops once the joint wald test
+pvalue exceeds <code class="docutils literal notranslate"><span class="pre">pval</span></code>. Default is <code class="docutils literal notranslate"><span class="pre">pval</span> <span class="pre">=</span> <span class="pre">0.05</span></code>.</p>
+</dd>
+</dl>
+</section>
+<section id="returns">
+<h2>Returns<a class="headerlink" href="#returns" title="Link to this heading">#</a></h2>
+<dl class="simple">
+<dt>result<span class="classifier">RegressionResult</span></dt><dd><p>The optimization result represented as an object. Resembles <cite>statsmodels</cite> result
+object. Important attributes are:</p>
+</dd>
+</dl>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">params</span></code>, which stores the estimated treatment effect as a <cite>pd.Series</cite></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">bse</span></code>, which stores the standard errors as a <cite>pd.Series</cite></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">summary()</span></code>, which summarizes the results</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">predict(runv)</span></code>, which predicts new outcome variables <span class="math notranslate nohighlight">\(Y_{\text{new}}\)</span>
+given running variable observations <span class="math notranslate nohighlight">\(D_{\text{new}}\)</span></p></li>
+</ul>
+</section>
+<section id="notes">
+<h2>Notes<a class="headerlink" href="#notes" title="Link to this heading">#</a></h2>
+<p><em>Local Linear Estimation</em> <code class="docutils literal notranslate"><span class="pre">model.fit(model</span> <span class="pre">=</span> <span class="pre">&quot;local</span> <span class="pre">linear&quot;)</span></code></p>
+<hr class="docutils" />
+<p>Setting <code class="docutils literal notranslate"><span class="pre">model</span> <span class="pre">=</span> <span class="pre">&quot;local</span> <span class="pre">linear&quot;</span></code> estimates the pooled regression:</p>
+<div class="math notranslate nohighlight">
+\[Y = \alpha_{l} + \theta_{0} A + \beta_{\ell} (D - c)
++ (\beta_{r} − \beta_{\ell}) A (D − c) + \epsilon\]</div>
+<p>For <span class="math notranslate nohighlight">\(Y\)</span>, the outcome variable, <span class="math notranslate nohighlight">\(c\)</span>, the cutoff, <span class="math notranslate nohighlight">\(D\)</span>,
+the running variable, and <span class="math notranslate nohighlight">\(A\)</span>, the treatment. Observations used in the
+regression are restricted to  <span class="math notranslate nohighlight">\(c - h &lt; d_{i} &lt; c + h\)</span>, where <cite>h</cite> is
+the choice of bandwidth. Lee and Lemieux<a class="footnote-reference brackets" href="#footcite-lee2010regression" id="id2" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a> shows that the treatment
+effect is given by  <span class="math notranslate nohighlight">\(\theta_{0}\)</span>. When exogenous variables are
+specified, we residualize <span class="math notranslate nohighlight">\(Y\)</span> with respect to the exogenous covariates
+and estimate:</p>
+<div class="math notranslate nohighlight">
+\[Y - X\pi = \alpha_{l} + \theta_{0} A + \beta_{\ell} (D - c)
++ (\beta_{r} − \beta_{\ell}) A (D − c) + \epsilon\]</div>
+<p>For exogenous covariates <span class="math notranslate nohighlight">\(X\)</span>.</p>
+<hr class="docutils" />
+<p><em>Polynomial Estimation</em> <code class="docutils literal notranslate"><span class="pre">model.fit(model</span> <span class="pre">=</span> <span class="pre">&quot;polynomial&quot;)</span></code></p>
+<hr class="docutils" />
+<p>Setting <code class="docutils literal notranslate"><span class="pre">model</span> <span class="pre">=</span> <span class="pre">&quot;polynomial&quot;</span></code> estimates the pooled regression:</p>
+<div class="math notranslate nohighlight">
+\[Y = \alpha_{l} + \theta_{0} A + \beta_{\ell1} (D - c)
++ (\beta_{r1} − \beta_{\ell1}) A (D − c) + \dots +
+\beta_{\ell k} (D - c)^{k} +  (\beta_{rk} − \beta_{\ell k}) A (D − c)^{k}
++  \epsilon\]</div>
+<p>For <span class="math notranslate nohighlight">\(Y\)</span>, the outcome variable, <span class="math notranslate nohighlight">\(c\)</span>, the cutoff, and <span class="math notranslate nohighlight">\(D\)</span>,
+the running variable, and the order of the polynomial <span class="math notranslate nohighlight">\(k\)</span>. When
+exogenous variables are specified, we residualize <span class="math notranslate nohighlight">\(Y\)</span> with respect
+to the exogenous covariates and estimate:</p>
+<div class="math notranslate nohighlight">
+\[Y - X\pi = \alpha_{l} + \theta_{0} A + \beta_{\ell1} (D - c)
++ (\beta_{r1} − \beta_{\ell1}) A (D − c) + \dots +
+\beta_{\ell k} (D - c)^{k} +  (\beta_{rk} − \beta_{\ell k}) A (D − c)^{k}
++  \epsilon\]</div>
+<p>For exogenous covariates <span class="math notranslate nohighlight">\(X\)</span>.</p>
+<hr class="docutils" />
+<p><em>Bandwidth optimization</em></p>
+<hr class="docutils" />
+<p>When choice for <code class="docutils literal notranslate"><span class="pre">bandwidth</span></code> is left unspecified, we use the cross-validation
+procedure introduced in Imbens and Lemieux<a class="footnote-reference brackets" href="#footcite-imbens-regression-2008" id="id3" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a> to choose the optimal
+bandwidth. Specifically, for observations less than the cutoff (<span class="math notranslate nohighlight">\(d_{i} &lt; c\)</span>),
+we predict the value of the outcome <span class="math notranslate nohighlight">\(\hat{Y}(d_{i})\)</span> using only observations
+within the bandwidth range and to the left of the point (<span class="math notranslate nohighlight">\(d_{i} - h &lt; d &lt; d_{i}\)</span>).
+Similarly, for points greater than the cutoff, (<span class="math notranslate nohighlight">\(d_{i} &gt; c\)</span>), we calculate
+<span class="math notranslate nohighlight">\(\hat{Y}(d_{i})\)</span> using <span class="math notranslate nohighlight">\(d\)</span> such that <span class="math notranslate nohighlight">\(d_{i} &lt; d &lt; d_{i} + h\)</span>.
+When then choose the bandwidth which minimizes the mean squared error of the
+predictions:</p>
+<div class="math notranslate nohighlight">
+\[CV(h) = \frac{1}{N} \sum_{i = 1}^{N} (Y_{i} - \hat{Y}(d_{i}))^{2}\]</div>
+<hr class="docutils" />
+<p><em>Polynomial Order Optimization</em></p>
+<hr class="docutils" />
+<p>When choice for <code class="docutils literal notranslate"><span class="pre">order</span></code> is left unspecified, we use one of two optimization
+procedures introduced in Lee and Lemieux<a class="footnote-reference brackets" href="#footcite-lee2010regression" id="id4" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a> to choose the order of the polynomial.
+If <code class="docutils literal notranslate"><span class="pre">optimization</span> <span class="pre">=</span> <span class="pre">'aic'</span></code> (default), then we minimize the Akaike Information Criterion
+objective function,</p>
+<div class="math notranslate nohighlight">
+\[AIC(p) = N \log(\hat{\sigma}^{2}) + 2p\]</div>
+<p>For <span class="math notranslate nohighlight">\(p\)</span>, the order of the polynomial and <span class="math notranslate nohighlight">\(\hat{\sigma}^{2}\)</span>, the estimated mean
+squared error of the regression. When <code class="docutils literal notranslate"><span class="pre">optimization</span> <span class="pre">=</span> <span class="pre">'significance</span> <span class="pre">bins'</span></code>, we follow
+the procedure outlined in Lee and Lemieux<a class="footnote-reference brackets" href="#footcite-lee2010regression" id="id5" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a>. Specifically, we add a set of
+bin dummies <span class="math notranslate nohighlight">\(\phi_{j}\)</span> to the polynomial regression to estimate the model:</p>
+<div class="math notranslate nohighlight">
+\[Y - X\pi = \alpha_{l} + \theta_{0} A + \beta_{\ell1} (D - c)
++ (\beta_{r1} − \beta_{\ell1}) A (D − c) + \dots +
+\beta_{\ell k} (D - c)^{k} +  (\beta_{rk} − \beta_{\ell k}) A (D − c)^{k}
++  \sum_{j = 2}^{J - 1}\phi_{j} B_{j} +  \epsilon\]</div>
+<p>And use a Wald Test to under the null hypothesis that <span class="math notranslate nohighlight">\(\phi_{2}, \dots, \phi_{J - 1} = 0\)</span>.
+The first polynomial order <span class="math notranslate nohighlight">\(p\)</span> such that the pvalue of the wald test exceeds <code class="docutils literal notranslate"><span class="pre">pval</span> <span class="pre">=</span> <span class="pre">0.05</span></code>
+is chosen (so we cannot reject the bin coefficients being zero).</p>
+<hr class="docutils" />
+<p><em>Fuzzy Design</em> <code class="docutils literal notranslate"><span class="pre">model.fit(design</span> <span class="pre">=</span> <span class="pre">&quot;fuzzy&quot;)</span></code></p>
+<hr class="docutils" />
+<p>When specifying a fuzzy design, we estimate the 2SLS model,</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}Y = \alpha + \theta_{0} \hat{\tilde{A}} + f(D - c) + \epsilon\\
+\tilde{A} = \gamma + \delta A + f(D - c) + \epsilon\end{split}\]</div>
+<p>For <span class="math notranslate nohighlight">\(Y\)</span>, the outcome variable, <span class="math notranslate nohighlight">\(c\)</span>, the cutoff, <span class="math notranslate nohighlight">\(D\)</span>, the running
+variable, and <span class="math notranslate nohighlight">\(A\)</span>, the treatment. <span class="math notranslate nohighlight">\(f(\cdot)\)</span> represents the method
+selected for the regression, which is polynomial for <code class="docutils literal notranslate"><span class="pre">model</span> <span class="pre">=</span> <span class="pre">&quot;polynomial&quot;</span></code> and
+local linear when <code class="docutils literal notranslate"><span class="pre">model</span> <span class="pre">=</span> <span class="pre">&quot;local</span> <span class="pre">linear&quot;</span></code>. Imbens and Lemieux<a class="footnote-reference brackets" href="#footcite-imbens-regression-2008" id="id6" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a>
+shows that for</p>
+<div class="math notranslate nohighlight">
+\[\theta_{0} = \lim_{\epsilon \to 0^{+}}
+\frac{\mathbb{E}[Y \mid D = c + \epsilon] - \mathbb{E}[Y \mid D = c - \epsilon]}
+{\mathbb{E}[A \mid D = c + \epsilon] - \mathbb{E}[A \mid D = c - \epsilon]}\]</div>
+<p>The estimated treatment effect <span class="math notranslate nohighlight">\(\hat{\theta}_{0}\)</span> in 2SLS is equivalent to estimating
+<span class="math notranslate nohighlight">\(\mathbb{E}[Y \mid D]\)</span> and <span class="math notranslate nohighlight">\(\mathbb{E}[A \mid D]\)</span> using
+regressions with the same function <span class="math notranslate nohighlight">\(f(\cdot)\)</span>.</p>
+</section>
+<section id="references">
+<h2>References<a class="headerlink" href="#references" title="Link to this heading">#</a></h2>
+<div class="docutils container" id="id7">
+<aside class="footnote-list brackets">
+<aside class="footnote brackets" id="footcite-imbens-regression-2008" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></span>
+<span class="backrefs">(<a role="doc-backlink" href="#id1">1</a>,<a role="doc-backlink" href="#id3">2</a>,<a role="doc-backlink" href="#id6">3</a>)</span>
+<p>Guido W. Imbens and Thomas Lemieux. Regression discontinuity designs: a guide to practice. <em>Journal of Econometrics</em>, 142(2):615–635, 2008. URL: <a class="reference external" href="https://www.sciencedirect.com/science/article/pii/S0304407607001091">https://www.sciencedirect.com/science/article/pii/S0304407607001091</a> (visited on 2024-08-13), <a class="reference external" href="https://doi.org/10.1016/j.jeconom.2007.05.001">doi:10.1016/j.jeconom.2007.05.001</a>.</p>
+</aside>
+<aside class="footnote brackets" id="footcite-lee2010regression" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></span>
+<span class="backrefs">(<a role="doc-backlink" href="#id2">1</a>,<a role="doc-backlink" href="#id4">2</a>,<a role="doc-backlink" href="#id5">3</a>)</span>
+<p>David S Lee and Thomas Lemieux. Regression discontinuity designs in economics. <em>Journal of economic literature</em>, 48(2):281–355, 2010.</p>
+</aside>
+</aside>
+</div>
+</section>
+<section id="examples">
+<h2>Examples<a class="headerlink" href="#examples" title="Link to this heading">#</a></h2>
+<p>Polynomial regression under a sharp design with polynomial order selection based
+on bin-coefficient hypothesis test.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">y</span><span class="p">,</span> <span class="n">d</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">a</span> <span class="o">=</span> <span class="n">generate_sample_data</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">c</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">model</span> <span class="o">=</span> <span class="n">RDD</span><span class="p">(</span><span class="n">outcome</span> <span class="o">=</span> <span class="n">y</span><span class="p">,</span> <span class="n">runv</span> <span class="o">=</span> <span class="n">d</span><span class="p">,</span> <span class="n">cutoff</span> <span class="o">=</span> <span class="n">c</span><span class="p">,</span>
+<span class="gp">&gt;&gt;&gt; </span>            <span class="n">exog</span> <span class="o">=</span> <span class="n">x</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">res</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">model</span> <span class="o">=</span> <span class="s2">&quot;polynomial&quot;</span><span class="p">,</span>
+<span class="gp">&gt;&gt;&gt; </span>      <span class="n">optimization</span> <span class="o">=</span> <span class="s1">&#39;significance bins&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">res</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
+<span class="go">                                          Sharp Polynomial</span>
+<span class="go">====================================================================================================</span>
+<span class="go">Dep. Variable:                              None    Run. Variable:                              None</span>
+<span class="go">Model:                          Sharp Polynomial    No. Observations:                            400</span>
+<span class="go">Covariance Type:       Heteroskedasticity robust    Polynomial Order:                              1</span>
+<span class="go">====================================================================================================</span>
+<span class="go">                                              coef   std err         t     P&gt;|t|    [0.025    0.975]</span>
+<span class="go">----------------------------------------------------------------------------------------------------</span>
+<span class="go">Treatment                                    1.291     0.270     4.788     0.000     0.761     1.821</span>
+<span class="go">====================================================================================================</span>
+</pre></div>
+</div>
+<p>Local linear regression under a fuzzy design with automatic bandwidth selection.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">y</span><span class="p">,</span> <span class="n">d</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">a</span> <span class="o">=</span> <span class="n">generate_sample_data</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">c</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">model</span> <span class="o">=</span> <span class="n">RDD</span><span class="p">(</span><span class="n">outcome</span> <span class="o">=</span> <span class="n">y</span><span class="p">,</span> <span class="n">runv</span> <span class="o">=</span> <span class="n">d</span><span class="p">,</span> <span class="n">cutoff</span> <span class="o">=</span> <span class="n">c</span><span class="p">,</span>
+<span class="gp">&gt;&gt;&gt; </span>            <span class="n">treatment</span> <span class="o">=</span> <span class="n">a</span><span class="p">,</span> <span class="n">exog</span> <span class="o">=</span> <span class="n">x</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">res</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">model</span> <span class="o">=</span> <span class="s2">&quot;local linear&quot;</span><span class="p">,</span>
+<span class="gp">&gt;&gt;&gt; </span>                <span class="n">design</span> <span class="o">=</span> <span class="s2">&quot;fuzzy&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">res</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
+<span class="go">                                         Fuzzy Local linear</span>
+<span class="go">====================================================================================================</span>
+<span class="go">Dep. Variable:                              None    Run. Variable:                              None</span>
+<span class="go">Model:                        Fuzzy Local linear    No. Observations:                            396</span>
+<span class="go">Variance Type:                   Bayes bootstrap    Bandwidth:                                 9.938</span>
+<span class="go">====================================================================================================</span>
+<span class="go">                                                         coef      std err       [0.025       0.975]</span>
+<span class="go">----------------------------------------------------------------------------------------------------</span>
+<span class="go">Treatment                                               1.733         None         None         None</span>
+<span class="go">====================================================================================================</span>
+</pre></div>
+</div>
+<p>Polynomial regression under a fuzzy design with AIC optimized polynomial order and
+bootstrap standard errors + confidence intervals.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">y</span><span class="p">,</span> <span class="n">d</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">a</span> <span class="o">=</span> <span class="n">generate_sample_data</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">c</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">model</span> <span class="o">=</span> <span class="n">RDD</span><span class="p">(</span><span class="n">outcome</span> <span class="o">=</span> <span class="n">y</span><span class="p">,</span> <span class="n">runv</span> <span class="o">=</span> <span class="n">d</span><span class="p">,</span> <span class="n">cutoff</span> <span class="o">=</span> <span class="n">c</span><span class="p">,</span>
+<span class="gp">&gt;&gt;&gt; </span>            <span class="n">treatment</span> <span class="o">=</span> <span class="n">a</span><span class="p">,</span> <span class="n">exog</span> <span class="o">=</span> <span class="n">x</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">res</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">model</span> <span class="o">=</span> <span class="s2">&quot;polynomial&quot;</span><span class="p">,</span> <span class="n">design</span> <span class="o">=</span> <span class="s2">&quot;fuzzy&quot;</span><span class="p">,</span>
+<span class="gp">&gt;&gt;&gt; </span>                <span class="n">optimization</span> <span class="o">=</span> <span class="s1">&#39;aic&#39;</span><span class="p">,</span> <span class="n">bootstrap</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">res</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
+<span class="go">                                          Fuzzy Polynomial</span>
+<span class="go">====================================================================================================</span>
+<span class="go">Dep. Variable:                              None    Run. Variable:                              None</span>
+<span class="go">Model:                          Fuzzy Polynomial    No. Observations:                            400</span>
+<span class="go">Variance Type:                   Bayes bootstrap    Polynomial Order:                              2</span>
+<span class="go">====================================================================================================</span>
+<span class="go">                                                         coef      std err       [0.025       0.975]</span>
+<span class="go">----------------------------------------------------------------------------------------------------</span>
+<span class="go">Treatment                                               2.011        0.540        1.110        3.076</span>
+<span class="go">====================================================================================================</span>
+</pre></div>
+</div>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="RDD.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">rddesign.RDD</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="continuity_test.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">rddesign.RDD.continuity_test</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#parameters">Parameters</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#returns">Returns</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#notes">Notes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#references">References</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#examples">Examples</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2024, Moses Stewart.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.0.2.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.15.4.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>
